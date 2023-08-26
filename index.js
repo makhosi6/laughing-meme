@@ -1,24 +1,25 @@
+const { uname, $pw, URL } = require("./config");
 const puppeteer = require("puppeteer-core"),
     fetch = (...args) => import('node-fetch').then(({ default: fetch }) => fetch(...args));
 
-const URL = "https://seller.takealot.com/sales",
     exPath = "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome",
-    user_dir = `./users/profile_661`,
-    $pw = "CqzgL2MbUhzVWEz";
+    user_dir = `./users/profile_661`;
+
+
 
 async function writeSales(postMessage) {
     try {
         let myHeaders = new Headers();
         myHeaders.append("Content-Type", "application/json");
         myHeaders.append("Authorization", "Bearer 34f873721804d57a5faf3ea8809b8ef50340c69ed180");
-        
+
         let raw = JSON.stringify(postMessage);
-        
+
         let requestOptions = {
-          method: 'POST',
-          headers: myHeaders,
-          body: raw,
-          redirect: 'follow'
+            method: 'POST',
+            headers: myHeaders,
+            body: raw,
+            redirect: 'follow'
         };
 
         let response = await fetch("http://localhost:9094/sales/records", requestOptions)

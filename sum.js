@@ -27,7 +27,7 @@ getAllSales((sales) => {
     let totalIncome = 0,
         totalProfit = 0,
         totalFees = 0;
-
+console.log({SALES_LENGTH: sales.length});
     for (let i = 0; i < sales.length; i++) {
         const sale = sales[i];
 
